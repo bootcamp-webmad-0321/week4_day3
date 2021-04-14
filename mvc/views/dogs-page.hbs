@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogs website</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <nav class='navbar navbar-expand-md navbar-dark bg-dark'>
+        <a class='navbar-brand' href='/'>Doggies</a>
+        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent'
+            aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+            <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+            <ul class='navbar-nav ml-auto'>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/'>Inicio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Los perros</h1>
+
+        <ul>
+            {{#each allDogs}}
+            <li>{{name}} viene de {{city}} y tiene {{age}} añazos</li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+
+</html>
