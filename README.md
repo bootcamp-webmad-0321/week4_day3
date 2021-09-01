@@ -59,8 +59,8 @@ Además de los métodos presentes por defecto en Mongoose, es posible dotar a lo
       return mongoose.model('Comment').find({ user_id: id })
   }
   
-  userSchema.statics.findByJob = function(job) {
-      return this.find({ job: new RegExp(job, 'i') })
+  userSchema.statics.findByJob = function(jobSearched) {
+      return this.find({ job: jobSearched })
   }
   
   const User = mongoose.model('User', userSchema)
@@ -78,35 +78,6 @@ Además de los métodos presentes por defecto en Mongoose, es posible dotar a lo
   User
     .findByJob('teacher')
     .then(users => users.forEach(elm => console.log(elm))
-  ````
-  
-  
-  
-- Métodos de instancia: aplicados sobre instancias realizadas con el modelo, hacen uso de datos presentes en el mismo mediante `this`
-
-  ````javascript
-  const userSchema = new mongoose.Schema({
-      name: String,
-      lastName: String,
-  })
-
-  userSchema.methods.getFullName = function() {   // no usar funciones flecha para mantener el contexto de this
-      return `${this.name} ${this.lastName}`
-  }
-  
-  const User = mongoose.model('User', userSchema)
-  
-  ````
-  
-  Uso:
-  ````javascript
-    const User = require('./../models/user.model.js')
-    
-    const person = new User({name: 'John', lastName: 'Doe'})
-    
-    person
-      .getFullName()
-      .then(fullName => console.log(fullName))
   ````
   
   
